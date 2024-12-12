@@ -1,144 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
-
-    <title>Фотограф Саша Алексеева</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Alekseeva photographer</title>
 </head>
-
-
 <body>
-
-
-    <div class="header">
-    <div class="container">
-        <div class="header-line">
-            <div class="left-buttons">
-                <a class="nav-item" href="#">ОБО МНЕ</a>
-                <a class="nav-item" href="#">ПОРТФОЛИО</a>
-                <a class="nav-item" href="#">ПРОЦЕСС</a>
+  
+  <dialog id="modal" class="modal">
+    <form method="dialog" class="modal__form">
+      <h3 class="section-heading modal__heading">записаться на съёмку</h3>
+      <input type="text" id="modal-name" minlength="3" required autocomplete="off" placeholder="Ваше имя" class="description modal__input">
+      <input type="email" id="modal-email" minlength="3" required autocomplete="off" placeholder="Ваш email" class="description modal__input">
+      <input type="tel" id="modal-tel" minlength="11" required autocomplete="off" placeholder="Номер телефона" class="description modal__input">
+      <button type="submit" id="submit" class="button modal__button">Оставить заявку</button>
+    </form>
+  </dialog>
+  
+  <div id="gallery-individual" class="gallery gallery-individual">
+    <button id="gallery-individual-close" class="burger-close gallery-close gallery-individual-close"></button>
+    <div class="container gallery-container gallery-individual__container">
+        <ul class="gallery-list gallery-individual__list">
+          <li class="gallery-item gallery-individual__item">
+            <img src="./assets/img/gallery-individual-1.png" alt="gallery-individual-photo" class="gallery-photo">
+          </li>
+          <li class="gallery-item gallery-individual__item">
+            <img src="./assets/img/gallery-individual-2.png" alt="gallery-individual-photo" class="gallery-photo">
+          </li>
+          <li class="gallery-item gallery-individual__item">
+            <img src="./assets/img/gallery-individual-3.png" alt="gallery-individual-photo" class="gallery-photo">
+          </li>
+         </ul>
+        <div class="gallery-buttons gallery-individual__buttons">
+          <button id="individual-slider-prev" class="slider-prev slider-button-nonvisible"></button>
+          <button id="individual-slider-next" class="slider-next"></button>
         </div>
-        <div class="logo">
-            <img src="images/logo.png" alt="Логотип">
+      </div>
+  </div>
+  
+  <div id="gallery-love" class="gallery gallery-love">
+    <button id="gallery-love-close" class="burger-close gallery-close gallery-love-close"></button>
+    <div class="container gallery-container gallery-love__container">
+        <ul class="gallery-list gallery-love__list">
+          <li class="gallery-item gallery-love__item">
+            <img src="./assets/img/gallery-love-1.png" alt="gallery-love-photo" class="gallery-photo">
+          </li>
+          <li class="gallery-item gallery-love__item">
+            <img src="./assets/img/gallery-love-2.png" alt="gallery-love-photo" class="gallery-photo">
+          </li>
+          <li class="gallery-item gallery-love__item">
+            <img src="./assets/img/gallery-love-3.png" alt="gallery-love-photo" class="gallery-photo">
+          </li>
+         </ul>
+        <div class="gallery-buttons gallery-love__buttons">
+          <button id="love-slider-prev" class="slider-prev slider-button-nonvisible"></button>
+          <button id="love-slider-next" class="slider-next"></button>
         </div>
-            <div class="right-links">
-                <a class="nav-item" href="#">ПРАЙС</a>
-                <a class="nav-item" href="#">ВОПРОСЫ</a>
-                <a class="nav-item" href="#">КОНТАКТЫ</a>
-              </div>
+      </div>
+  </div>
+  
+  <div id="gallery-wedding" class="gallery gallery-wedding">
+    <button id="gallery-wedding-close" class="burger-close gallery-close gallery-wedding-close"></button>
+    <div class="container gallery-container gallery-wedding__container">
+        <ul class="gallery-list gallery-wedding__list">
+          <li class="gallery-item gallery-wedding__item">
+            <img src="./assets/img/gallery-wedding-1.png" alt="gallery-wedding-photo" class="gallery-photo">
+          </li>
+          <li class="gallery-item gallery-wedding__item">
+            <img src="./assets/img/gallery-wedding-2.png" alt="gallery-wedding-photo" class="gallery-photo">
+          </li>
+          <li class="gallery-item gallery-wedding__item">
+            <img src="./assets/img/gallery-wedding-3.png" alt="gallery-wedding-photo" class="gallery-photo">
+          </li>
+         </ul>
+        <div class="gallery-buttons gallery-wedding__buttons">
+          <button id="wedding-slider-prev" class="slider-prev slider-button-nonvisible"></button>
+          <button id="wedding-slider-next" class="slider-next"></button>
+        </div>
+      </div>
+  </div>
+  
+  <header class="header">
+    <div class="container header__container">
+      <button id="burger-button" class="burger-button"></button>
+      <ul class="header__navigation-list navigation-list">
+        <li class="header__navigation-item navigation-item">
+          <a href="#about" class="header__navigation-title navigation-title">обо мне</a>
+        </li>
+        <li class="header__navigation-item navigation-item">
+          <a href="#portfolio" class="header__navigation-title navigation-title">портфолио</a>
+        </li>
+        <li class="header__navigation-item navigation-item">
+          <a href="#process" class="header__navigation-title navigation-title">процесс</a>
+        </li>
+      </ul>
+      <img src="./assets/img/svg/logo.svg" alt="logo" class="header__logo">
+      <ul class="header__navigation-list navigation-list">
+        <li class="header__navigation-item navigation-item">
+          <a href="#price" class="header__navigation-title navigation-title">прайс</a>
+        </li>
+        <li class="header__navigation-item navigation-item">
+          <a href="#questions" class="header__navigation-title navigation-title">вопросы</a>
+        </li>
+        <li class="header__navigation-item navigation-item">
+          <a href="#contacts" class="header__navigation-title navigation-title">контакты</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  
+  <div id="burger-menu" class="burger-menu">
+    <div class="container burger-menu__container">
+      <button id="burger-close" class="burger-close"></button>
+      <ul class="burger-menu__list">
+          <li class="burger-menu__item navigation-item">
+            <a href="#about" class="burger-menu__title navigation-title">обо мне</a>
+          </li>
+          <li class="burger-menu__item navigation-item">
+            <a href="#portfolio" class="burger-menu__title navigation-title">портфолио</a>
+          </li>
+          <li class="burger-menu__item navigation-item">
+            <a href="#process" class="burger-menu__title navigation-title">процесс</a>
+          </li>
+          <li class="burger-menu__item navigation-item">
+              <a href="#price" class="burger-menu__title navigation-title">прайс</a>
+            </li>
+            <li class="burger-menu__item navigation-item">
+              <a href="#questions" class="burger-menu__title navigation-title">вопросы</a>
+            </li>
+            <li class="burger-menu__item navigation-item">
+              <a href="#contacts" class="burger-menu__title navigation-title">контакты</a>
+            </li>
+      </ul>
+    </div>
+  </div>
+  
+  <section class="section section-hero">
+    <div class="container section-hero__container">
+      <h1 class="section-heading section-hero__heading">саша алексеева</h1>
+      <h3 class="title section-hero__description">профессиональный фотограф</h3>
+      <button type="button" onclick="modal.showModal()" class="button button-modal section-hero__button">Записаться на съёмку</button>
+    </div>
+  </section>
+  
+  <section id="about" class="section section-about">
+    <div class="container section-about__container">
+      <h3 class="section-heading section-about__heading">
+        обо мне
+      </h3>
+      <p class="description section-about__description">
+        Привет! Меня зовут Саша, и я профессиональный фотограф с 6-летним опытом работы. За эти годы я успела поработать с множеством замечательных людей и запечатлеть важные моменты их жизни. Моё увлечение фотографией началось с желания сохранять уникальные и искренние эмоции, и это вдохновляет меня в каждом новом проекте.
+      </p>
+    </div>
+  </section>
+  
+  <section id="portfolio" class="section section-portfolio">
+    <div class="container section-portfolio__container">
+      <h3 class="section-heading section-portfolio__heading">
+        мои работы
+      </h3>
+      <ul class="section-portfolio__list">
+        <li id="open-gallery-individual" class="section-portfolio__item">
+          <img src="./assets/img/portfolio-item-1.png" alt="portfolio-photo" class="section-portfolio__item-photo">
+          <p class="title section-portfolio__item-description">индивидуальные</p>
+        </li>
+        <li id="open-gallery-love" class="section-portfolio__item">
+          <img src="./assets/img/portfolio-item-2.png" alt="portfolio-photo" class="section-portfolio__item-photo">
+          <p class="title section-portfolio__item-description">love story</p>
+        </li>
+        <li id="open-gallery-wedding" class="section-portfolio__item">
+          <img src="./assets/img/portfolio-item-3.png" alt="portfolio-photo" class="section-portfolio__item-photo">
+          <p class="title section-portfolio__item-description">свадебные</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <section id="process" class="section section-process">
+    <div class="container section-process__container">
+      <h3 class="section-heading section-process__heading">
+        как устроен процесс
+      </h3>
+      <div class="section-process__questions">
+        <details name="faq-process" class="section-process-details">
+          <summary class="section-process-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-process-1">
+              <p class="title accordion__title-number">01</p>
+              <p class="title accordion__title">Знакомство</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-process-1" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-process-summary">
+              Мы начинаем с обсуждения ваших идей, пожеланий и целей съемки. Это помогает понять ваш стиль, настроение и формат, который вы хотите увидеть в конечном результате.
+            </p>
+          </div>
+        </div>
+          
+        <details name="faq-process" class="section-process-details">
+          <summary class="section-process-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-process2">
+              <p class="title accordion__title-number">02</p>
+              <p class="title accordion__title">определение концепции</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-process-2" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-process-summary">
+              На основе ваших пожеланий разрабатываем уникальную концепцию съемки. Продумываем образы, атмосферу, и стиль, чтобы подчеркнуть вашу индивидуальность.
+            </p>
+          </div>
+        </div>
+        
+        <details name="faq-process" class="section-process-details">
+          <summary class="section-process-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-process-3">
+              <p class="title accordion__title-number">03</p>
+              <p class="title accordion__title">составление мудборда</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-process-3" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-process-summary">
+              Создаем визуальный план — мудборд, где собираем референсы, цветовые палитры, идеи поз, и детали. Это помогает наглядно представить будущую съемку и согласовать все нюансы.
+            </p>
+          </div>
+        </div>
+        
+        <details name="faq-process" class="section-process-details">
+          <summary class="section-process-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-process-4">
+              <p class="title accordion__title-number">04</p>
+              <p class="title accordion__title">бронь локации</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-process-4" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-process-summary">
+              Подбираем и резервируем место, которое лучше всего подходит под концепцию. Это может быть студия, природная локация или уютное помещение.
+            </p>
+          </div>
+        </div>
+        
+        <details name="faq-process" class="section-process-details">
+          <summary class="section-process-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-process-5">
+              <p class="title accordion__title-number">05</p>
+              <p class="title accordion__title">съёмка и обработка фото</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-process-5" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-process-summary">
+              Организуем съемочный процесс, чтобы вам было комфортно и приятно работать. После съемки тщательно обрабатываем фотографии, подчеркивая детали и создавая гармоничные цвета.
+            </p>
+          </div>
+        </div>
+        
+        <details name="faq-process" class="section-process-details">
+          <summary class="section-process-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-process-6">
+              <p class="title accordion__title-number">06</p>
+              <p class="title accordion__title">передача фото</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-process-6" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-process-summary">
+              Готовые фотографии вы получаете в оговоренные сроки в цифровом формате. Все материалы предоставляются в высоком качестве, готовые к использованию.
+            </p>
+          </div>
         </div>
     </div>
-
-
-
-        <div class="header-down">
-
-            <div class="header-title">
-                САША АЛЕКСЕЕВА
-
-                <div class="header-subtitle">
-                    ПРОФЕССИОНАЛЬНЫЙ ФОТОГРАФ
-                </div>
-
-                <div class="'header-btn">
-                    <a href="#" class="header-button">Записаться на съёмку</a>
-                
-                </div>
-
-            </div>
-
-        </div>
-
-
+  </section>
+    
+  <section class="section section-story">
+    <div class="container section-story__container">
+      <h2 class="section-heading section-story__heading">
+        каждое фото — это история,<br class="story__heading-br"> которую хочется пересматривать
+      </h2>
     </div>
-
-    <div class="aboutme">
-
-        <div class="container">
-
-            <div class="aboutme-flex">
-
-                <div class="title">
-                    ОБО МНЕ
-                </div>
-
-                <div class="aboutme-description">
-                    Привет! Меня зовут Саша, и я профессиональный фотограф с 6-летним опытом работы. За эти годы я успела поработать с множеством замечательных людей и запечатлеть важные моменты их жизни. Моё увлечение фотографией началось с желания сохранять уникальные и искренние эмоции, и это вдохновляет меня в каждом новом проекте.
-                    
-                    <div class="aboutme-description2">
-                        Я стараюсь создать комфортную и непринужденную атмосферу на съемке, чтобы каждый чувствовал себя естественно перед камерой. Для меня важно не просто сделать красивое фото, а передать настоящие эмоции и характер людей.
-                    </div>
-                </div>
-
+  </section>
+    
+    <section id="price" class="section section-price">
+      <div class="container section-price__container">
+        <h3 class="section-heading section-price__heading">
+          прайс
+        </h3>
+        <ul class="section-price__list">
+          <li class="section-price__item">
+            <h3 class="title section-price__item-title">Индивидуальная съёмка</h3>
+            <ul class="section-price__item-services">
+              <li class="description section-price__item-services-item">
+                Помощь в подборе концепции, образа и локации
+              </li>
+              <li class="description section-price__item-services-item">
+                Время съёмки — 2 часа
+              </li>
+              <li class="description section-price__item-services-item">
+                Помощь в позировании
+              </li>
+              <li class="description section-price__item-services-item">
+                40 фото в обработке
+              </li>
+              <li class="description section-price__item-services-item">
+                Все исходники
+              </li>
+              <li class="description section-price__item-services-item">
+                Срок сдачи — до 2-ух недель
+              </li>
+            </ul>
+            <h3 class="title section-price__item-price">10 000 ₽</h3>
+          </li>
+          <li class="section-price__item">
+            <h3 class="title section-price__item-title specific-margin">love story</h3>
+            <ul class="section-price__item-services">
+              <li class="description section-price__item-services-item">
+                Помощь в подборе концепции, образа и локации
+              </li>
+              <li class="description section-price__item-services-item">
+                Время съёмки — 3 часа
+              </li>
+              <li class="description section-price__item-services-item">
+                Помощь в позировании
+              </li>
+              <li class="description section-price__item-services-item">
+                80 фото в обработке
+              </li>
+              <li class="description section-price__item-services-item">
+                Все исходники
+              </li>
+              <li class="description section-price__item-services-item">
+                Срок сдачи — до 3-ёх недель
+              </li>
+            </ul>
+            <h3 class="title section-price__item-price">15 000 ₽</h3>
+          </li>
+          <li class="section-price__item">
+            <h3 class="title section-price__item-title">свадебная  съёмка</h3>
+            <ul class="section-price__item-services">
+              <li class="description section-price__item-services-item">
+                Время съёмок — 8-12 часов
+              </li>
+              <li class="description section-price__item-services-item">
+                Помощь в позировании
+              </li>
+              <li class="description section-price__item-services-item">
+                200 фото в обработке
+              </li>
+              <li class="description section-price__item-services-item">
+                Все исходники
+              </li>
+              <li class="description section-price__item-services-item">
+                Срок сдачи — до 4-ёх недель
+              </li>
+            </ul>
+            <h3 class="title section-price__item-price">40 000 ₽</h3>
+          </li>
+         </ul>
+        <div class="slider-buttons">
+          <button id="slider-prev" class="slider-prev slider-button-nonvisible"></button>
+          <button id="slider-next" class="slider-next"></button>
+        </div>
+      </div>
+    </section>
+    
+  <section id="questions" class="section section-questions">
+    <div class="container section-questions__container">
+      <h3 class="section-heading section-questions__heading">
+        популярные вопросы
+      </h3>
+      <div class="section-questions__questions">
+        <details name="faq" class="section-questions-details">
+          <summary class="section-questions-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-1">
+              <p class="title accordion__title">я должен сам забронировать студию?</p>
+              <button class="accordion__title-button"></button>
             </div>
-
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-1" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-questions-summary">
+              Нет, этим занимаюсь я. Вместе мы выбираем подходящее место, а я беру на себя бронирование и организационные моменты.
+            </p>
+          </div>
+        </div>
+          
+        <details name="faq" class="section-questions-details">
+          <summary class="section-questions-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-2">
+              <p class="title accordion__title">я нефотогеничный и не умею позировать, получатся ли красивые фото?</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-2" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-questions-summary">
+              Абсолютно! Я помогу вам чувствовать себя комфортно перед камерой, подскажу удачные позы и ракурсы. Моя задача — раскрыть вашу естественную красоту и создать кадры, которые вам понравятся.
+            </p>
+          </div>
+        </div>
+        
+        <details name="faq" class="section-questions-details">
+          <summary class="section-questions-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-3">
+              <p class="title accordion__title">будут ли какие-то дополнительные расходы?</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-3" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-questions-summary">
+              Все условия и возможные дополнительные расходы (например, аренда студии или визажист) обсуждаются заранее. Никаких неожиданных затрат не будет.
+            </p>
+          </div>
+        </div>
+        
+        <details name="faq" class="section-questions-details">
+          <summary class="section-questions-summary">
+            <div class="accordion__title-block" role="term" aria-details="faq-4">
+              <p class="title accordion__title">не могу определиться с идеей и образом</p>
+              <button class="accordion__title-button"></button>
+            </div>
+          </summary>
+        </details>
+        <div class="accordion__content" id="faq-4" role="definition">
+          <div class="accordion__content-body">
+            <p class="description section-questions-summary">
+              Это не проблема! Мы вместе разработаем идею съемки, подберем образы и детали. Я помогу вам найти то, что подчеркнет вашу индивидуальность.
+            </p>
+          </div>
         </div>
     </div>
-
-    <div class="works">
-
-        <div class="container">
-
-            <div class="title">
-                МОИ РАБОТЫ
-            </div>
-            
-            <div class="works-flex">
-
-                <div class="card">
-
-                    <div class="card-image">
-                        <img class="card-image" src="images/ind.png">
-                    </div>
-
-                    <div class="card-title">
-                        ИНДИВИДУАЛЬНЫЕ
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-image">
-                        <img class="card-image" src="images/love.png">
-                    </div>
-
-                    <div class="card-title">
-                        LOVE STORY
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-image">
-                        <img class="card-image" src="images/wedd.png">
-                    </div>
-
-                    <div class="card-title">
-                        СВАДЕБНЫЕ
-                    </div>
-
-                </div>
-
-            </div>
-
+  </section>
+    
+  <section id="action" class="section section-action">
+      <div class="container section-action__container">
+        <div class="section-action__content">
+          <h3 class="section-heading section-action__heading">
+            записаться на съёмку
+          </h3>
+          <p class="description section-action__description">
+            Оставьте свои контактные данные, и я свяжусь с вами в ближайшее время, чтобы выбрать дату и обсудить детали фотосессии
+          </p>
+          <button type="button" onclick="modal.showModal()" class="button button-modal section-hero__button">Оставить заявку</button>
         </div>
-
+      </div>
+  </section>
+    
+  <footer id="contacts" class="footer">
+    <div class="container footer__container">
+      <div class="footer__contacts">
+        <div class="footer__contacts-tel-wrapper">
+          <p class=" description footer__contacts-tel-placeholder">Телефон:</p>
+          <a href="tel:+79819819891" class="description footer__contacts-tel">+7 (981) 981 98 91</a>
+        </div>
+        <div class="footer__contacts-email-wrapper">
+          <p class="description footer__contacts-email-placeholder">Email:</p>
+          <a href="mailto:alekseeva_ph@gmail.com" class="description footer__contacts-email">alekseeva_ph@gmail.com</a>
+        </div>
+        <img src="./assets/img/svg/logo.svg" alt="logo" class="footer__logo">
+      </div>
+      <div class="footer__org-info">
+        <a href="#" class="description footer__org-info-ip">ИП Александра Алексеева</a>
+        <a href="#" class="description footer__org-info-privacy-policy">Политика конфеденциальности</a>
+      </div>
     </div>
-
-
-
-</div>
+  </footer>
+    
+  <script defer src="./js/main.js" type="text/javascript"></script>
+</body>
+</html>
